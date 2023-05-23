@@ -4,7 +4,7 @@ import rospy
 from udemy_pkg.msg import IoTMessage
 import random
 
-pub = rospy.Publisher('iot_sensor_topic', IoTMessage, queue_size=10)
+pub = rospy.Publisher('iot_sensor_topic', IoTMessage, queue_size=10) 
 rospy.init_node('iot_sensor_publisher_node', anonymous=True)
 rate = rospy.Rate(1) # 1hz
 
