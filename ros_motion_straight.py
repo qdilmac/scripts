@@ -44,7 +44,7 @@ def poseCallback(pose_message):
     x = pose_message.x
     y = pose_message.y
     yaw = pose_message.theta
-
+    
 if __name__ == "__main__":
     try:
         rospy.init_node("turtlesim_motion_pose", anonymous=True)
@@ -54,14 +54,17 @@ if __name__ == "__main__":
 
         vel_publisher = rospy.Publisher(cmd_vel_topic, Twist, queue_size= 10)
         pose_subscriber = rospy.Subscriber(position_topic, Pose, poseCallback)
-        time.sleep(2)
+        time.sleep(1)
 
         speed = float(input("Robot's speed: "))
         distance = float(input("Distance: "))
         is_forward = int(input("Forward or not? (1/0): "))
 
+        # calling the move function with the given inputs
         move(vel_publisher, speed, distance, is_forward)
-        
+
+        # printing final location of turtlesim
+        rospy.loginfo("Current position >>  x: {} \ny: {} \ntheta: {}".format(x,y,yaw))
         
     except rospy.ROSInterruptException:
         print("exception occured")
