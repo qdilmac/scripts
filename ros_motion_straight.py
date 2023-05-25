@@ -64,7 +64,7 @@ if __name__ == "__main__":
         move(vel_publisher, speed, distance, is_forward)
 
         # printing final location of turtlesim
-        rospy.loginfo("Current position >>  x: {} \ny: {} \ntheta: {}".format(x,y,yaw))
+        rospy.loginfo("Current position >>  \nx: {} \ny: {} \ntheta: {}".format(x,y,yaw))
         
     except rospy.ROSInterruptException:
         print("exception occured")
