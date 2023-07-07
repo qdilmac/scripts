@@ -40,6 +40,7 @@ def poseCallback(pose_message):
     y = pose_message.y
     yaw = pose_message.theta
 
+
 if __name__ == "__main__":
     try:
         rospy.init_node("turtlesim_motion_pose", anonymous=True)
