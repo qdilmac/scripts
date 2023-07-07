@@ -10,12 +10,13 @@ from turtlesim.msg import Pose
 def go_to_goal(vel_publisher, x_goal, y_goal):
     global x, y, yaw
     
+    
     vel_message = Twist()
 
     while True:
         K_linear = 0.6
         distance = abs(math.sqrt(((x_goal - x) ** 2) + ((y_goal - y) ** 2)))
-
+    
         linear_speed = distance * K_linear
 
         desired_angle_goal = math.atan2(y_goal - y, x_goal - x)
